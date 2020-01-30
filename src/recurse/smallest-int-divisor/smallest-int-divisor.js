@@ -1,11 +1,6 @@
-const smallestIntDivisior = (n) => {
-  if (!n || typeof n !== 'number') return null;
-  const iter = (num, int) => {
-    if (num === 1) return int;
-    if (!(n % num)) return iter(num - 1, num);
-    return iter(num - 1, int);
-  };
-  return iter(n, n);
+const smallestIntDivisior = (n, int = 2) => {
+  if (!(n % int)) return int;
+  return smallestIntDivisior(n, int + 1);
 };
 
 export default smallestIntDivisior;
